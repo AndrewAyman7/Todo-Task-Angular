@@ -1,0 +1,39 @@
+<div >
+    <h1 class="header1"> {{title}} </h1>
+
+    <div class="container">
+        <div class="add-section">
+            <div class="add-section-l">
+                <input class="form-control" placeholder="Add Task" [(ngModel)]="inputTask" /> 
+            </div>
+            <div class="add-section-r"> 
+                <button class="btn btn-info" (click)="addTask()"> Add Task </button> 
+            </div>
+        </div> <br/>
+
+        <div>
+            <table>
+                <thead>
+                  <tr>
+                    <th>Task Number</th>
+                    <th>Task</th>
+                    <th>Completed</th>
+                    <th>edit</th>
+                    <th>delete</th>
+                  </tr>
+                </thead>
+                <tbody *ngIf ="tasks.length > 0">
+
+                  <tr *ngFor="let item of tasks">
+                    <td> {{item.id}} </td>
+                    <td> {{item.title}} </td>
+                    <td> <input type="checkbox" class="my-checkbox"> </td>
+                    <td> <button class="btn btn-warning" (click)="updateTask(item.id)">edit</button> </td>
+                    <td> <button class="btn btn-danger" (click)="removeTask(item.id)">delete</button> </td>
+                  </tr>
+
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
